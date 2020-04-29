@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-This is my home page<br>
-{% for project in projects %}
-{{ project.title }}<br>
-{{ project.description }}<br>
-<img src="{{ project.image.url }}" height="180" width="180">
-<br>
-{% if project.url %}
-<a href="{{ project.url }}"> Project Link</a>
-{% endif %}
-<br>
+{% extends "portfolio/base.html" %}
 
-{% endfor %}
-</body>
-</html>
+{% block content %}
+    {% load static %}
+    <h1>Jaskiran's Portfolio</h1>
+    <img src="{% static 'portfolio/pic.jpeg' %}" height="200" width="200">
+
+    <a href="{% static 'portfolio/resume.pdf' %}">Resume</a><br>
+    <a href="{% url 'blogs:all_blogs' %}">All Blogs</a>
+    <br>
+    {% for project in projects %}
+    {{ project.title }}<br>
+    {{ project.description }}<br>
+    <img src="{{ project.image.url }}" height="180" width="180">
+    <br>
+    {% if project.url %}
+    <a href="{{ project.url }}"> Project Link</a>
+    {% endif %}
+    <br>
+
+    {% endfor %}
+{% endblock %}

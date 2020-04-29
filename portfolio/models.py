@@ -7,4 +7,5 @@ class Project(models.Model):
     url=models.URLField(blank=True)#blank makes thr property optional
     #if we work with images we have to install pillow
 
-
+    def __str__(self):
+        return self.title
