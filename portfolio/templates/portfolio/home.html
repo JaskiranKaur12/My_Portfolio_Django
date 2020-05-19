@@ -1,22 +1,80 @@
 {% extends "portfolio/base.html" %}
 
+{% load static %}
+
 {% block content %}
-    {% load static %}
-    <h1>Jaskiran's Portfolio</h1>
-    <img src="{% static 'portfolio/pic.jpeg' %}" height="200" width="200">
+<style>
+* {box-sizing: border-box}
 
-    <a href="{% static 'portfolio/resume.pdf' %}">Resume</a><br>
-    <a href="{% url 'blogs:all_blogs' %}">All Blogs</a>
-    <br>
-    {% for project in projects %}
-    {{ project.title }}<br>
-    {{ project.description }}<br>
-    <img src="{{ project.image.url }}" height="180" width="180">
-    <br>
-    {% if project.url %}
-    <a href="{{ project.url }}"> Project Link</a>
-    {% endif %}
-    <br>
+.container {
+  width: 100%;
+  background-color: #ddd;
+}
 
-    {% endfor %}
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.html {width: 90%; background-color: #AB5907;}
+.css {width: 80%; background-color: #AB5907;}
+.java {width: 70%; background-color: #AB5907;}
+.python {width: 60%; background-color: #AB5907;}
+.node {width: 50%; background-color: #AB5907;}
+.angular {width: 55%; background-color: #AB5907;}
+
+h1 {
+  text-shadow: 0 0 5px #AB5907, 0 0 5px #AB5907;
+}
+.shadow {
+text-shadow: 0 0 5px #AB5907, 0 0 5px #AB5907;
+}
+</style>
+    <h1 align="center" class="mt-3">Jaskiran's Portfolio</h1>
+<div class="row">
+    <div class="col-md-6">
+    <img src="{% static 'portfolio/pic2.jpg' %}" width="270px" height="65%"  class="center">
+    <br>
+    <h4 align="center">Software Developer offering a strong foundation in <br> software engineering and programming principles <br>using various
+        platforms such as <br> <span class="shadow">JAVA, Python, Javascript </span>.</h4>
+    </div>
+    <div class="col-md-5">
+HTML<br>
+<div class="container">
+  <div class="skills html">90%</div>
+</div>
+<br>
+CSS<br>
+<div class="container">
+  <div class="skills css">80%</div>
+</div>
+
+<br>
+JAVA<br>
+<div class="container">
+  <div class="skills java">70%</div>
+</div>
+
+<br>
+Python<br>
+<div class="container">
+  <div class="skills python">60%</div>
+</div>
+<br>
+Node.js<br>
+<div class="container">
+  <div class="skills node">50%</div>
+</div>
+<br>
+Angular.js<br>
+<div class="container">
+  <div class="skills angular">55%</div>
+</div>
+    </div>
+    </div>
+<div class="row">
+
+</div>
 {% endblock %}

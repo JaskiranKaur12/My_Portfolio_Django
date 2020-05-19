@@ -19,10 +19,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 from portfolio import views
 
+
 urlpatterns = [
+    path('', views.basic, name='basic'),
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('blog/', include('blogs.urls'))
+    path('home/', views.home, name='home'),
+    path('blog/', include('blogs.urls')),
+    path('projects/',views.projects, name='projects'),
+    path('contactme/', include('sendemail.urls')),
 ]
 
 urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

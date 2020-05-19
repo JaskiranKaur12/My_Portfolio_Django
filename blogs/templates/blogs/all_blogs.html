@@ -1,12 +1,23 @@
 {% extends "portfolio/base.html" %}
 
 {% block content %}
-    <h3>This is my new blog page</h3><br>
-    <h5>Jaskiran has written {{ blogs.count }} blog{{ blogs.count| pluralize }}</h5>
+<style>
+    h3 {
+  text-shadow: 0 0 5px #AB5907, 0 0 5px #AB5907;
+}
+</style>
+<div align="center">
+    <h3>Jaskiran has written {{ blogs.count }} blog{{ blogs.count| pluralize }}</h3><br>
+    <table>
     {% for blog in blogs %}
+        <tr>
     <a href="{% url 'blogs:detail' blog.id %}" ><h1>{{ blog.title }}</h1></a><br>
-    <h5>{{ blog.date|date:'M d Y'|upper}}</h5><br>
-    <p>{{ blog.description|striptags|truncatechars:100}}</p><br>
+        </tr>
+            <tr><h5>{{ blog.date|date:'M d Y'|upper}}</h5><br></tr>
+    <tr><p>{{ blog.description|striptags|truncatechars:100}}</p><br></tr>
     <br>
+
     {% endfor %}
+        </table>
+    </div>
 {% endblock %}

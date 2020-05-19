@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+SECRET = os.getenv("SECRET")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portfolio',
     'blogs',
+    'sendemail',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -124,3 +127,10 @@ MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #saves the media to the base directory of the project-media root
 #take whatever the base directory is and add media to it
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST_USER=Email_host
+# EMAIL_HOST='smtp.gmail.com'
+# EMAIL_USE_TLS= True
+# EMAIL_PORT= 587
+# EMAIL_HOST_PASSWORD=password
+
